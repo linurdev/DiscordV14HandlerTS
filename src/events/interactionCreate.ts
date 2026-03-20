@@ -6,7 +6,7 @@ export const event = {
   once: false,
 
   async execute(interaction: Interaction) {
-    if (!interaction.isChatInputCommand()) return;
+    if (!interaction.isChatInputCommand() && !interaction.isContextMenuCommand()) return;
 
     const client = interaction.client as ExtendedClient;
     const command = client.commands.get(interaction.commandName);
